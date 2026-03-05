@@ -5,10 +5,10 @@ import { Outlet } from "react-router-dom";
 function Adminlayout() {
   return (
     <>
-      <div>
-        <Navbar />
-        <div>
-          <Sidebar />
+      <div className="flex gap-2">
+        <Sidebar />
+        <div className="w-full">
+          <Navbar />
           <main>
             <Outlet />
           </main>
