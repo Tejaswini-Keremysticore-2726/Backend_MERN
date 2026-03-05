@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function Login() {
       const res = await axios.post(
         "http://localhost:5000/api/login",
         {
-          identifier: username,
+          email: email,
 
           password: password,
         },
@@ -52,8 +52,8 @@ function Login() {
             placeholder="Username or Eamil"
             className="border border-gray-300 rounded-lg w-100 p-2 mt-5"
             name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
