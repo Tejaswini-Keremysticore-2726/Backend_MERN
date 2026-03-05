@@ -33,6 +33,8 @@ import Register from "./pages/Register";
 import AdminDash from "./Layout/AdminDash";
 import UserDash from "./Layout/UserDash";
 import Adminlayout from "./Layout/Adminlayout";
+import TotalProd from "./pages/TotalProd";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -44,7 +46,9 @@ function App() {
       <Route path="dashboard" element={<AdminDash />} />
 
       <Route path="/admin" element={<AdminDash />}>
-       
+        <Route index element={<Dashboard />} />
+        //by default
+        <Route path="totalproducts" element={<TotalProd />} />
       </Route>
     </Routes>
   );
