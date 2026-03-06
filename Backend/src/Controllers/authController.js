@@ -7,6 +7,7 @@ const register = async (req, res) => {
   try {
     const { username, email, password, role = "user" } = req.body;
 
+    
     const existsuser = await usermodel.findOne({ email });
     if (existsuser) {
       return res
