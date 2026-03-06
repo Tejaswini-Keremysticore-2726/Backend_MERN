@@ -49,7 +49,7 @@ function Login() {
           {error && <p className="bg-red-100">{error}</p>}
           <input
             type="text"
-            placeholder="Username or Eamil"
+            placeholder="Eamil"
             className="border border-gray-300 rounded-lg w-100 p-2 mt-5"
             name="username"
             value={email}

@@ -7,10 +7,32 @@ import { MdDashboard } from "react-icons/md";
 import { FaClipboardList } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 import { FaBox } from "react-icons/fa";
+import axios from "axios";
+import { useEffect } from "react";
 
 function AdminDash() {
-  const [logout, setLogout] = useState(false);
   const navigate = useNavigate();
+  useEffect(() => {
+    const checkAdmin = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:5000/api/admin/dashboard",
+          {
+            withCredentials: true,
+          },
+        );
+
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+        navigate("/");
+      }
+    };
+
+    checkAdmin();
+  }, []);
+
+  const [logout, setLogout] = useState(false);
 
   const handleLogout = () => {
     setLogout(true);
@@ -49,7 +71,7 @@ function AdminDash() {
           />
 
           <div>
-            {setLogout && (
+            {logout && (
               <button
                 onClick={handleLogout}
                 className="bg-amber-500 text-white font-bold p-2 rounded-lg hover:bg-amber-900 hover:text-white"

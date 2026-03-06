@@ -52,28 +52,59 @@
 //   }
 // };
 
+// // module.exports = protect;
+
+// const jwt = require("jsonwebtoken");
+
+// const protect = (req, res, next) => {
+//   // const takeToken = req.headers.authorization;
+//   const tokencokkies = req.cookies.tokencokkies;
+//   if (!takeToken || !takeToken.startsWith("Bearer ")) {
+//     return res
+//       .status(401)
+//       .json({ success: false, message: "No Token Provided" });
+//   }
+
+//   const token = takeToken.split(" ")[1];
+
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//     console.log("✅ Decoded token:", decoded);
+//     req.user = decoded;
+//     next();
+//   } catch (err) {
+//     return res.status(401).json({ success: false, message: "Invalid Token" });
+//   }
+// };
+
 // module.exports = protect;
 
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 
 const protect = (req, res, next) => {
-  const takeToken = req.headers.authorization;
+  const token = req.cookies.token; // cookie se token le rahe hai
 
-  if (!takeToken || !takeToken.startsWith("Bearer ")) {
-    return res
-      .status(401)
-      .json({ success: false, message: "No Token Provided" });
+  if (!token) {
+    return res.status(401).json({
+      success: false,
+      message: "No Token Provided",
+    });
   }
-
-  const token = takeToken.split(" ")[1];
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
     console.log("✅ Decoded token:", decoded);
+
     req.user = decoded;
+
     next();
   } catch (err) {
-    return res.status(401).json({ success: false, message: "Invalid Token" });
+    return res.status(401).json({
+      success: false,
+      message: "Invalid Token",
+    });
   }
 };
 

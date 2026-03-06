@@ -1,11 +1,16 @@
-
 const express = require("express");
-const router = express.Router();
+const authRoutes = require("../src/Routes/authRoute");
+const adminroutes = require("./Routes/adminRoutes");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
-router.get("/me", (req, res) => {
-  res.json({
-    message: "User profile route working",
-  });
-});
+const app = express();
+app.use(cookieParser());
 
-module.exports = router;
+// app.use(cors());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(express.json());
+app.use("/api", authRoutes);
+app.use("/api/admin", adminroutes);
+
+module.exports = app;
