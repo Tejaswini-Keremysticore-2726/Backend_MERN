@@ -7,6 +7,7 @@ const alluser = new mongoose.Schema({
   email: {
     type: String,
   },
+  password: { type: String },
   isActive: {
     type: Boolean,
     default: true,
@@ -16,5 +17,10 @@ const alluser = new mongoose.Schema({
   },
   createdAt: { type: Date, default: Date.now },
 });
+const User = mongoose.model("User", alluser);
 
-module.exports = alluser;
+module.exports = User;
+
+// const User = mongoose.model("User", userSchema);
+//     ↑           ↑         ↑          ↑
+//  variable    method   model name   schema

@@ -105,10 +105,19 @@ function AdminDash() {
             <MdDashboard size={25} className="text-amber-500" />
             Admin Dashboard
           </NavLink>
-          <h2 className="text-xl font-bold flex gap-3 p-2 hover:bg-amber-900 hover:text-white hover:rounded-lg ">
+          <NavLink
+            to="/admin/allusers"
+            className={({ isActive }) =>
+              `text-xl font-bold flex gap-3 p-2 rounded-lg ${
+                isActive
+                  ? "bg-black text-white"
+                  : "text-orange-400 hover:bg-amber-900 hover:text-white"
+              }`
+            }
+          >
             <FaUsers size={25} className="text-amber-500" />
             Users
-          </h2>
+          </NavLink>
 
           <h2 className="text-xl font-semibold flex gap-3 p-2 hover:bg-amber-900 hover:text-white hover:rounded-lg ">
             <FaBox size={20} className="text-amber-500" />
