@@ -15,29 +15,58 @@ function Login() {
     console.log("Data fetch successfully");
     fetchdata();
   };
+
+  // const fetchdata = async () => {
+  //   try {
+  //     const res = await axios.post(
+  //       "http://localhost:5000/api/auth/login",
+  //       {
+  //         email: email,
+
+  //         password: password,
+  //       },
+  //       { withCredentials: true },
+  //     );
+  //     console.log(res.data.role);
+  //     if (res.data.success) {
+  //       alert("User Login Successfully ✅"); // ✅ alert before navigate
+  //       navigate(res.data.role?.toLowerCase() === "admin" ? "/admin" : "/user");
+  //     }
+  //     console.log(res.data);
+  //     alert("User Login Successfully ✅");
+  //   } catch (error) {
+  //     setError(error.message);
+  //   }
+  // };
   const fetchdata = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/login",
+        "http://localhost:5000/api/auth/login",
         {
           email: email,
-
           password: password,
         },
         { withCredentials: true },
       );
-      console.log(res.data.role);
+
+      console.log("FULL RESPONSE:", res.data);
+      console.log("ROLE:", res.data.role);
+
       if (res.data.success) {
-        alert("User Login Successfully ✅"); // ✅ alert before navigate
-        navigate(res.data.role === "admin" ? "/admin" : "/user");
+        alert("User Login Successfully ✅");
+
+        const role = res.data.role?.toLowerCase();
+
+        if (role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/user");
+        }
       }
-      console.log(res.data);
-      alert("User Login Successfully ✅");
     } catch (error) {
-      setError(error.message);
+      setError(error.response?.data?.message || "Login failed");
     }
   };
-
   return (
     <>
       <div className="w-full h-screen flex justify-center items-center">
@@ -66,8 +95,7 @@ function Login() {
           />
 
           <p>
-            Don't have an account
-            <p /> <Link to="/register">Register here</Link>
+            Don't have an account? <Link to="/register">Register here</Link>
           </p>
           <button
             type="submit"

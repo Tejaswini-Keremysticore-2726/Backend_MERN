@@ -50,6 +50,7 @@ export default function AllUserAdmin() {
             <th style={th}>Status</th>
             <th style={th}>Last Login</th>
             <th style={th}>Joined</th>
+            <th style={th}>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -103,7 +104,3 @@ export default function AllUserAdmin() {
 
 const th = { color: "white", padding: "12px 16px", textAlign: "left" };
 const td = { padding: "12px 16px", borderBottom: "1px solid #eee" };
-
-
-
-

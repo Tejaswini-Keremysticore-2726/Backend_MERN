@@ -15,6 +15,11 @@ const alluser = new mongoose.Schema({
   lastLogin: {
     type: Date,
   },
+  role: {
+    type: String,
+    enum: ["admin", "user"],
+    default: "user",
+  },
   createdAt: { type: Date, default: Date.now },
 });
 const User = mongoose.model("User", alluser);

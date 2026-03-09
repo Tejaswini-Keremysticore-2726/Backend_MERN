@@ -4,7 +4,7 @@ import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function Register() {
-  const [username, setUsername] = useState("");
+  const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -19,8 +19,8 @@ function Register() {
   };
   const fetchdata = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/register", {
-        username,
+      const res = await axios.post("http://localhost:5000/api/auth/register", {
+        fullname,
         email,
         password,
       });
@@ -48,11 +48,11 @@ function Register() {
           {msg && <p className="bg-red-100">{msg}</p>}
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Fullname"
             className="border border-gray-300 rounded-lg w-100 p-2 mt-5"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name="fullname"
+            value={fullname}
+            onChange={(e) => setFullname(e.target.value)}
           />
           <input
             type="email"

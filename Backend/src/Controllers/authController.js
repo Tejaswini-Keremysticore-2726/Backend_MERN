@@ -182,13 +182,17 @@ const login = async (req, res) => {
     user.lastLogin = new Date();
     await user.save();
 
-    await Login.create({
-      userId: user._id,
-      fullname: user.fullname,
-      email: user.email,
-      isActive: true,
-      lastLogin: new Date(),
-    });
+    
+if (user.role === "user") {
+  await Login.create({
+    userId: user._id,
+    fullname: user.fullname,
+    email: user.email,
+    role: user.role,
+    isActive: true,
+    lastLogin: new Date(),
+  });
+}
 
     const token = jwt.sign(
       { id: user._id.toString(), role: user.role },
