@@ -40,7 +40,7 @@ function AdminDash() {
   };
   return (
     <div className="h-screen flex flex-col gap-3 overflow-hidden min-h-screen bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
-      {/* Navbar */}
+      Navbar
       <nav className="h-18 w-full bg-[#323235] flex justify-between items-center px-6 bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
         <div className="flex gap-2 justify-center items-center">
           <img
@@ -86,7 +86,6 @@ function AdminDash() {
         className="text-[#c98c48] 
         border-[#c98c48] border shadow-2xs"
       />
-
       {/* Main Section */}
       <div className="flex flex-1">
         {/* Sidebar */}
@@ -119,14 +118,37 @@ function AdminDash() {
             Users
           </NavLink>
 
-          <h2 className="text-xl font-semibold flex gap-3 p-2 hover:bg-amber-900 hover:text-white hover:rounded-lg ">
-            <FaBox size={20} className="text-amber-500" />
+          <NavLink
+            to="/admin/allproducts"
+            className={({ isActive }) =>
+              `text-xl font-bold flex gap-3 p-2 rounded-lg ${
+                isActive
+                  ? "bg-black text-white"
+                  : "text-orange-400 hover:bg-amber-900 hover:text-white"
+              }`
+            }
+          >
+            <FaClipboardList size={25} className="text-amber-500" />
             Products
-          </h2>
-          <h2 className="text-xl font-semibold flex gap-3 p-2 hover:bg-amber-900 hover:text-white hover:rounded-lg ">
+          </NavLink>
+
+          {/* <h2 className="text-xl font-semibold flex gap-3 p-2 hover:bg-amber-900 hover:text-white hover:rounded-lg ">
             <FaClipboardList size={25} className="text-amber-500" />
             Orders
-          </h2>
+          </h2> */}
+          <NavLink
+            to="/admin/allorders"
+            className={({ isActive }) =>
+              `text-xl font-bold flex gap-3 p-2 rounded-lg ${
+                isActive
+                  ? "bg-black text-white"
+                  : "text-orange-400 hover:bg-amber-900 hover:text-white"
+              }`
+            }
+          >
+            <FaClipboardList size={25} className="text-amber-500" />
+            Orders
+          </NavLink>
 
           <div>
             {setLogout && (

@@ -33,8 +33,10 @@ import Register from "./pages/Register";
 import AdminDash from "./Layout/AdminDash";
 import UserDash from "./Layout/UserDash";
 import Adminlayout from "./Layout/Adminlayout";
+import Orders from "./pages/Orders";
+import Products from "./pages/Products";
 
-import Dashboard from "./pages/Dashboard";
+// import Dashboard from "./pages/Dashboard";
 import AllUserAdmin from "./pages/AllUserAdmin";
 
 function App() {
@@ -44,12 +46,12 @@ function App() {
       <Route path="/user" element={<UserDash />} />
       <Route path="/" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      <Route path="dashboard" element={<AdminDash />} />
+      {/* <Route path="dashboard" element={<AdminDash />} /> */}
 
       <Route path="/admin" element={<AdminDash />}>
-        <Route index element={<Dashboard />} />
-        //by default
         <Route path="allusers" element={<AllUserAdmin />}></Route>
+        <Route path="allorders" element={<Orders />}></Route>
+        <Route path="allproducts" element={<Products />}></Route>
       </Route>
     </Routes>
   );
