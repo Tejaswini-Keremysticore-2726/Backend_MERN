@@ -91,13 +91,27 @@ function AdminDash() {
         {/* Sidebar */}
         <div className="w-72 bg-[#323235] text-[#cf9c70] p-4 flex flex-col gap-10 shadow-2xl  bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
           {/* <h1 className="text-2xl font-bold">Dashboard</h1> */}
-          <NavLink
-            to="/admin"
+          {/* <NavLink
+            to="/admin/dashboard"
             className={({ isActive }) =>
               `mt-10 flex gap-3 ${
                 isActive
-                  ? "bg-black text-white rounded-lg p-2 text-xl from-gray-800 to-gray-700 font-bold shadow-lg"
+                  ? "bg-amber-300 text-black rounded-lg p-2 text-xl from-gray-800 to-gray-700 font-bold shadow-lg"
                   : " hover:bg-gray-800 text-orange-400"
+              }`
+            }
+          >
+            <MdDashboard size={25} className="text-amber-500" />
+            Admin Dashboard
+          </NavLink> */}
+
+          <NavLink
+            to="/admin/dashboard"
+            className={({ isActive }) =>
+              `text-xl font-bold flex gap-3 p-2 rounded-lg ${
+                isActive
+                  ? "bg-amber-300 text-black"
+                  : "text-orange-400 hover:bg-amber-900 hover:text-white"
               }`
             }
           >
@@ -109,7 +123,7 @@ function AdminDash() {
             className={({ isActive }) =>
               `text-xl font-bold flex gap-3 p-2 rounded-lg ${
                 isActive
-                  ? "bg-black text-white"
+                  ? "bg-amber-300 text-black"
                   : "text-orange-400 hover:bg-amber-900 hover:text-white"
               }`
             }
@@ -123,12 +137,12 @@ function AdminDash() {
             className={({ isActive }) =>
               `text-xl font-bold flex gap-3 p-2 rounded-lg ${
                 isActive
-                  ? "bg-black text-white"
+                  ? "bg-amber-300 text-black"
                   : "text-orange-400 hover:bg-amber-900 hover:text-white"
               }`
             }
           >
-            <FaClipboardList size={25} className="text-amber-500" />
+            <FaBox size={25} className="text-amber-500" />
             Products
           </NavLink>
 
@@ -141,7 +155,7 @@ function AdminDash() {
             className={({ isActive }) =>
               `text-xl font-bold flex gap-3 p-2 rounded-lg ${
                 isActive
-                  ? "bg-black text-white"
+                  ? "bg-amber-300 text-black"
                   : "text-orange-400 hover:bg-amber-900 hover:text-white"
               }`
             }
