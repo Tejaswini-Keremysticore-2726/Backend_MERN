@@ -34,7 +34,7 @@ import AdminDash from "./Layout/AdminDash";
 import UserDash from "./Layout/UserDash";
 import Adminlayout from "./Layout/Adminlayout";
 import Orders from "./pages/Orders";
-import Products from "./pages/Products";
+import AdminProducts from "./pages/AdminProducts";
 
 // import Dashboard from "./pages/Dashboard";
 import AllUserAdmin from "./pages/AllUserAdmin";
@@ -52,7 +52,7 @@ function App() {
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="allusers" element={<AllUserAdmin />}></Route>
         <Route path="allorders" element={<Orders />}></Route>
-        <Route path="allproducts" element={<Products />}></Route>
+        <Route path="allproducts" element={<AdminProducts />}></Route>
       </Route>
     </Routes>
   );

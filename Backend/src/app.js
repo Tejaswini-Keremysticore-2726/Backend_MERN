@@ -6,6 +6,7 @@ const updeletuser = require("./Routes/updeluserbyadminRoutes");
 
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const adminprodRoutes = require("./Routes/adminprodRoutes");
 
 const app = express();
 
@@ -18,5 +19,6 @@ app.use("/api/admin", adminroutes);
 app.use("/api/users", userroutes);
 app.use("/api/updateuser/users", updeletuser);
 app.use("/api/deleteuser/users", updeletuser);
+app.use("/api/admin/products", adminprodRoutes);
 
 module.exports = app;
