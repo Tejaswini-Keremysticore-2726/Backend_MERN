@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaEdit } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
+import { FaBox } from "react-icons/fa";
 
 const AdminProducts = () => {
   const [prodata, setProdata] = useState([]);
@@ -16,6 +17,7 @@ const AdminProducts = () => {
     pro_category: "",
     pro_stock: "",
   });
+
   const [updatemodal, setUpdatemodal] = useState(false); // update on off modal
   const [updateddata, setUpdateddata] = useState({}); //updated data store
 
@@ -52,12 +54,15 @@ const AdminProducts = () => {
       setFormmodal(false);
       setFormdata({
         // ← ye add karo
+
         pro_name: "",
         pro_price: "",
         pro_url: "",
         pro_category: "",
         pro_stock: "",
       });
+      
+
       setSuccessmsg("product added successfully");
       setTimeout(() => setSuccessmsg(false), 3000);
       fetchProducts();
@@ -67,13 +72,19 @@ const AdminProducts = () => {
   };
 
   if (loading === true) {
-    return <div>Loading....</div>;
+    return <div>Loading...</div>;
   }
 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/admin/products/${id}`);
       fetchProducts();
+      const confirm = window.confirm(
+        "Are you sure you want to delete the product",
+      );
+      if (!confirm) {
+        return;
+      }
       setSuccessmsg("product deleted sucessfullly");
       setTimeout(() => setSuccessmsg(false), 3000);
     } catch (err) {
@@ -85,7 +96,10 @@ const AdminProducts = () => {
     <>
       <div className="p-8 pt-20 px-8 h-150 bg-black font-sans">
         <h2 className="mb-5 text-2xl font-bold text-white flex justify-between">
-          <div className="flex gap-2">Products</div>
+          <div className="flex gap-2">
+            <FaBox size={25} className="text-amber-900 mt-1" />
+            Products
+          </div>
           <button
             className="bg-amber-600 text-white hover:bg-amber-900 p-1 rounded-lg"
             onClick={() => setFormmodal(true)}
