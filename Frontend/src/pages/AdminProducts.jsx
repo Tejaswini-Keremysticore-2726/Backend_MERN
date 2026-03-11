@@ -30,9 +30,9 @@ const AdminProducts = () => {
     setLoading(false);
   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
   const handleUpdate = async () => {
     try {
@@ -61,7 +61,6 @@ const AdminProducts = () => {
         pro_category: "",
         pro_stock: "",
       });
-      
 
       setSuccessmsg("product added successfully");
       setTimeout(() => setSuccessmsg(false), 3000);
@@ -94,7 +93,7 @@ const AdminProducts = () => {
 
   return (
     <>
-      <div className="p-8 pt-20 px-8 h-150 bg-black font-sans">
+      <div className="p-4 bg-black font-sans h-full">
         <h2 className="mb-5 text-2xl font-bold text-white flex justify-between">
           <div className="flex gap-2">
             <FaBox size={25} className="text-amber-900 mt-1" />
@@ -108,28 +107,16 @@ const AdminProducts = () => {
           </button>
         </h2>
 
-        <div className="overflow-x-auto rounded-lg shadow-lg bg-white">
-          <table className="min-w-full border-collapse">
-            <thead className="bg-amber-900 text-white">
+        <div className="overflow-auto rounded-lg shadow-lg bg-white max-h-[500px]">
+          <table className="min-w-[800px] w-full">
+            <thead className="bg-amber-900 text-white font-bold ">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Prod_img
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Prod_Name
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Prod_Price
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Prod_Category
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Stock
-                </th>
-                <th className="px-4 py-3 text-center text-sm font-semibold">
-                  Action
-                </th>
+                <th className="px-4 py-3 text-left text-sm ">Prod_img</th>
+                <th className="px-4 py-3 text-left text-sm ">Prod_Name</th>
+                <th className="px-4 py-3 text-left text-sm ">Prod_Price</th>
+                <th className="px-4 py-3 text-left text-sm ">Prod_Category</th>
+                <th className="px-4 py-3 text-left text-sm ">Stock</th>
+                <th className="px-4 py-3 text-center text-sm">Action</th>
               </tr>
             </thead>
             <tbody className="font-semibold">

@@ -76,28 +76,16 @@ export default function AllUserAdmin() {
           </div>
         </h2>
 
-        <div className="overflow-x-auto rounded-lg shadow-lg bg-white">
+        <div className="overflow-auto rounded-lg shadow-lg bg-white">
           <table className="min-w-full border-collapse">
-            <thead className="bg-amber-900  text-white">
+            <thead className="bg-amber-900  text-white border-2 border-b-amber-950 font-bold">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Full Name
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Email
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Status
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Last Login
-                </th>
-                {/* <th className="px-4 py-3 text-left text-sm font-semibold">
-                Joined
-              </th> */}
-                <th className="px-4 py-3 text-center text-sm font-semibold">
-                  Action
-                </th>
+                <th className="px-4 py-3 text-left text-sm">Full Name</th>
+                <th className="px-4 py-3 text-left text-sm">Email</th>
+                <th className="px-4 py-3 text-left text-sm">Status</th>
+                <th className="px-4 py-3 text-left text-sm">Last Login</th>
+               
+                <th className="px-4 py-3 text-center text-sm">Action</th>
               </tr>
             </thead>
             <tbody className="font-semibold">

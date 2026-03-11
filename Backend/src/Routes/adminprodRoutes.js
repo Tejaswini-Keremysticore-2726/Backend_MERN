@@ -4,6 +4,7 @@ const adminprodController = require("../Controllers/adminprodController");
 
 router.post("/", adminprodController.createprod);
 router.get("/", adminprodController.allprod);
+router.get("/recent", adminprodController.recentlythreepro);
 router.get("/:id", adminprodController.singleprod);
 router.put("/:id", adminprodController.updateprod);
 router.delete("/:id", adminprodController.deleteprod);

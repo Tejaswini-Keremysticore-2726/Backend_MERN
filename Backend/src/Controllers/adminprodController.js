@@ -53,7 +53,8 @@ const updateprod = async (req, res) => {
         pro_category,
         pro_stock,
       },
-      { returnDocument: "after" }, // without it returns old product with it it returns new document returns updated document
+      { returnDocument: "after" }, 
+      // without it returns old product with it it returns new document returns updated document
     );
     res.status(200).json(toupdateprod);
   } catch (err) {
@@ -77,4 +78,20 @@ const deleteprod = async (req, res) => {
   }
 };
 
-module.exports = { createprod, allprod, singleprod, updateprod, deleteprod };
+const recentlythreepro = async (req, res) => {
+  try {
+    const threedata = await product.find().sort({ createdAt: -1 }).limit(3);
+    res.status(200).json(threedata);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+module.exports = {
+  createprod,
+  allprod,
+  singleprod,
+  updateprod,
+  deleteprod,
+  recentlythreepro,
+};

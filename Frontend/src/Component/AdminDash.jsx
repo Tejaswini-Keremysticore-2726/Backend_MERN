@@ -39,7 +39,7 @@ function AdminDash() {
     navigate("/");
   };
   return (
-    <div className="h-screen flex flex-col gap-3 overflow-hidden min-h-screen bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
+    <div className="flex-1 p-6 overflow-y-auto h-0 min-h-screen bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
       Navbar
       <nav className="h-18 w-full bg-[#323235] flex justify-between items-center px-6 bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
         <div className="flex gap-2 justify-center items-center">
@@ -90,7 +90,6 @@ function AdminDash() {
       <div className="flex flex-1">
         {/* Sidebar */}
         <div className="w-72 bg-[#323235] text-[#cf9c70] p-4 flex flex-col gap-10 shadow-2xl  bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
-          
           <NavLink
             to="/admin"
             end
@@ -164,7 +163,7 @@ function AdminDash() {
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-6">
+        <div className="flex-1 overflow-hidden p-6">
           <Outlet />
         </div>
       </div>

@@ -3,14 +3,18 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FaUsers } from "react-icons/fa";
 import { FaBox } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa";
+import { FaDollarSign } from "react-icons/fa";
+// import ProductCarasoule from "../Component/ProductCarasoule";
+import RecentProducts from "./RecentProducts";
 
 const Cards = ({ title, count, table, to, icon }) => {
   return (
     <>
-      <div className="w-90 h-40 rounded-lg border border-gray-400 p-2 hover:bg-black/100 text-amber-600 hover:text-white">
+      <div className="w-80 h-40 rounded-lg border border-gray-400 p-2 hover:bg-black text-amber-600 hover:text-white">
         <div className="flex flex-col justify-center items-center gap-5">
           <h1 className=" text-2xl font-bold flex gap-2">
-            <p size={25} className= "mt-1">
+            <p size={25} className="mt-1">
               {icon}
             </p>
             {title}
@@ -93,7 +97,22 @@ const AdmincardsDashboard = () => {
           table="See Products"
           to="/admin/allproducts"
         />
+        <Cards
+          icon={<FaClipboardList size={25} className="text-amber-500" />}
+          title="Total Orders"
+          // count={totalproducts}
+          // table="See Products"
+          // to="/admin/allproducts"
+        />
+        <Cards
+          icon={<FaDollarSign size={25} className="text-amber-500" />}
+          title="Total Revenue"
+          // count={totalproducts}
+          // table="See Products"
+          // to="/admin/allproducts"
+        />
       </div>
+      <RecentProducts />
     </>
   );
 };

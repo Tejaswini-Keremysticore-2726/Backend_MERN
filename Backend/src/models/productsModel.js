@@ -20,6 +20,7 @@ const productsdetailed = new mongoose.Schema(
     pro_stock: {
       type: Number,
     },
+    createdAt: { type: Date, default: Date.now },
   },
 
   { timestamps: true },

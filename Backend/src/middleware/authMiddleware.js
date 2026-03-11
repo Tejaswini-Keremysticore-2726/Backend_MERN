@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 
 const protect = (req, res, next) => {
-  console.log("Cookies:", req.cookies);
-  console.log("Token:", req.cookies.token);
+  // console.log("Cookies:", req.cookies);
+  // console.log("Token:", req.cookies.token);
   const token = req.cookies.token; // cookie se token le rahe hai
 
   if (!token) {
