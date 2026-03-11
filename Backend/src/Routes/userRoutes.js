@@ -4,4 +4,4 @@ const router = express.Router();
 
 router.get("/loginuser", getlogedinuser);
 
-module.exports = getlogedinuser;
+module.exports = router;

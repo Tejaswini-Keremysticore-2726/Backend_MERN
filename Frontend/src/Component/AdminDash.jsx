@@ -92,7 +92,8 @@ function AdminDash() {
         <div className="w-72 bg-[#323235] text-[#cf9c70] p-4 flex flex-col gap-10 shadow-2xl  bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
           
           <NavLink
-            to="/admin/dashboard"
+            to="/admin"
+            end
             className={({ isActive }) =>
               `text-xl font-bold flex gap-3 p-2 rounded-lg ${
                 isActive
