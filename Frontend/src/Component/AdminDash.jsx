@@ -9,6 +9,7 @@ import { FaUsers } from "react-icons/fa";
 import { FaBox } from "react-icons/fa";
 import axios from "axios";
 import { useEffect } from "react";
+import { FiLogOut } from "react-icons/fi";
 
 function AdminDash() {
   const navigate = useNavigate();
@@ -41,17 +42,20 @@ function AdminDash() {
   };
   return (
     <div className="flex-1 p-6 overflow-y-auto h-0 min-h-screen bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
-      <nav className="h-18 w-full bg-[#323235] flex justify-between items-center px-6 bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
-        <div className="flex gap-2 justify-center items-center">
-          <button className="md:hidden" onClick={() => setSidebar(!sidebar)}>
+      <nav className="h-18 w-full bg-[#111111] flex justify-between items-center px-6">
+        <div className="flex justify-between items-center gap-2">
+          {/* <button
+            className="sm:hidden md:hidden"
+            onClick={() => setSidebar(!sidebar)}
+          >
             <i className="fa-solid fa-bars text-white text-2xl"></i>
-          </button>
+          </button> */}
           <img
             src="https://m.media-amazon.com/images/I/61+gxqqO8LL.jpg"
             alt=""
             className="w-12 h-12"
           />
-          <h1 className="text-2xl font-bold border-amber-500 text-amber-500 font-serif ">
+          <h1 className="text-[12px] sm:text-[18px] font-bold border-amber-500 text-amber-500 font-serif md:text-2xl ">
             Royal Enfield
           </h1>
         </div>
@@ -92,15 +96,24 @@ function AdminDash() {
       {/* Main Section */}
       <div className="flex flex-1">
         {/* Sidebar */}
-        {/* <div className="w-72 bg-[#323235] text-[#cf9c70] p-4 flex flex-col gap-10 shadow-2xl  bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]"> */}
+
         <div
-          className={`fixed top-0 left-0 h-full z-50 w-72 bg-[#111111] text-[#cf9c70] p-4 flex flex-col gap-10 transition-transform duration-300 ${sidebar ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 `}
+          className={`top-0 left-0 h-full z-50 
+  w-16 md:w-72 
+  bg-[#111111] text-[#cf9c70] p-4 flex flex-col gap-10 
+  transition-all duration-300`}
         >
+          {/* <button
+            className="md:hidden text-amber-500 font-bold text-2xl self-end"
+            onClick={() => setSidebar(false)}
+          >
+            ✕
+          </button> */}
           <NavLink
             to="/admin"
             end
             className={({ isActive }) =>
-              `text-xl font-bold flex gap-3 p-2 rounded-lg ${
+              `text-xl font-bold flex gap-3 p-2 rounded-lg  ${
                 isActive
                   ? "bg-amber-300 text-black"
                   : "text-orange-400 hover:bg-amber-900 hover:text-white"
@@ -108,7 +121,7 @@ function AdminDash() {
             }
           >
             <MdDashboard size={25} className="text-amber-500" />
-            Admin Dashboard
+            <span className="hidden md:inline"> Admin Dashboard</span>
           </NavLink>
           <NavLink
             to="/admin/allusers"
@@ -121,7 +134,7 @@ function AdminDash() {
             }
           >
             <FaUsers size={25} className="text-amber-500" />
-            Users
+            <span className="hidden md:inline">Users</span>
           </NavLink>
 
           <NavLink
@@ -135,7 +148,7 @@ function AdminDash() {
             }
           >
             <FaBox size={25} className="text-amber-500" />
-            Products
+            <span className="hidden md:inline">Products</span>
           </NavLink>
 
           {/* <h2 className="text-xl font-semibold flex gap-3 p-2 hover:bg-amber-900 hover:text-white hover:rounded-lg ">
@@ -153,27 +166,29 @@ function AdminDash() {
             }
           >
             <FaClipboardList size={25} className="text-amber-500" />
-            Orders
+            <span className="hidden md:inline">Orders</span>
           </NavLink>
 
           <div>
             {setLogout && (
               <button
                 onClick={handleLogout}
-                className="bg-amber-500 w-65 text-white font-bold p-2 rounded-lg hover:bg-amber-900 hover:text-white"
+                className=" bg-amber-500  text-white font-bold p-2 rounded-lg hover:bg-amber-900 hover:text-white"
               >
-                Logout
+                <div className="flex gap-2">
+                  <FiLogOut size={25} className="text-amber-100" />
+
+                  <span className="hidden md:inline">Logout</span>
+                </div>
               </button>
             )}
           </div>
         </div>
 
-        {sidebar && (
-          <div
-            className="fixed inset-0 bg-black opacity-50 z-40 md:hidden"
-            onClick={() => setSidebar(false)}
-          />
-        )}
+        {/* {sidebar && (
+          <div className="fixed  md:hidden" onClick={() => setSidebar(false)} />
+        )} */}
+        {/* agar sidebar opn h to ye div render hoga */}
 
         {/* Content */}
         <div className="flex-1 overflow-hidden p-6">
