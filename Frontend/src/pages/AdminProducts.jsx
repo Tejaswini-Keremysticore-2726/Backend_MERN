@@ -107,7 +107,7 @@ const AdminProducts = () => {
           </button>
         </h2>
 
-        <div className="overflow-auto rounded-lg shadow-lg bg-white max-h-[500px]">
+        <div className="overflow-auto rounded-lg shadow-lg bg-black text-amber-500 font-bold max-h-[500px]">
           <table className="min-w-[800px] w-full">
             <thead className="bg-amber-900 text-white font-bold ">
               <tr>
@@ -130,7 +130,7 @@ const AdminProducts = () => {
                 prodata.map((eachprod) => (
                   <tr
                     key={eachprod._id}
-                    className="hover:bg-gray-100 transition-colors"
+                    className="hover:bg-amber-200 hover:text-black transition-colors"
                   >
                     <td className="px-4 py-3">
                       <img

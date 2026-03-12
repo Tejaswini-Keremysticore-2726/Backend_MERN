@@ -76,7 +76,7 @@ export default function AllUserAdmin() {
           </div>
         </h2>
 
-        <div className="overflow-auto rounded-lg shadow-lg bg-white">
+        <div className="overflow-auto rounded-lg shadow-lg text-amber-500">
           <table className="min-w-full border-collapse">
             <thead className="bg-amber-900  text-white border-2 border-b-amber-950 font-bold">
               <tr>
@@ -84,7 +84,7 @@ export default function AllUserAdmin() {
                 <th className="px-4 py-3 text-left text-sm">Email</th>
                 <th className="px-4 py-3 text-left text-sm">Status</th>
                 <th className="px-4 py-3 text-left text-sm">Last Login</th>
-               
+
                 <th className="px-4 py-3 text-center text-sm">Action</th>
               </tr>
             </thead>
@@ -105,7 +105,7 @@ export default function AllUserAdmin() {
                 users.map((user) => (
                   <tr
                     key={user._id}
-                    className="hover:bg-gray-100 transition-colors"
+                    className="hover:bg-amber-200 font-bold hover:text-black transition-colors"
                   >
                     <td className="px-4 py-3">{user.fullname}</td>
                     <td className="px-4 py-3">{user.email}</td>

@@ -42,7 +42,7 @@ const RecentProducts = () => {
             </thead>
             <tbody>
               {lastproducts.map((prod) => (
-                <tr key={prod._id} className=" text-center bg-white text-black">
+                <tr key={prod._id} className=" text-center bg-black text-amber-500 hover:bg-amber-200 hover:text-black">
                   <th>
                     <img
                       src={prod.pro_url}

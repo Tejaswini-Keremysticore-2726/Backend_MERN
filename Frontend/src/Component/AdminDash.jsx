@@ -34,7 +34,7 @@ function AdminDash() {
   }, []);
 
   const [logout, setLogout] = useState(false);
-  const [sidebar, setSidebar] = useState(false);
+  // const [sidebar, setSidebar] = useState(false);
 
   const handleLogout = () => {
     setLogout(true);
@@ -112,6 +112,7 @@ function AdminDash() {
           <NavLink
             to="/admin"
             end
+            title="Admin Dashboard"
             className={({ isActive }) =>
               `text-xl font-bold flex gap-3 p-2 rounded-lg  ${
                 isActive
