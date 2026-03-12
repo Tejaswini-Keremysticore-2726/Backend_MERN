@@ -33,6 +33,7 @@ function AdminDash() {
   }, []);
 
   const [logout, setLogout] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
 
   const handleLogout = () => {
     setLogout(true);
@@ -40,9 +41,11 @@ function AdminDash() {
   };
   return (
     <div className="flex-1 p-6 overflow-y-auto h-0 min-h-screen bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
-      Navbar
       <nav className="h-18 w-full bg-[#323235] flex justify-between items-center px-6 bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
         <div className="flex gap-2 justify-center items-center">
+          <button className="md:hidden" onClick={() => setSidebar(!sidebar)}>
+            <i className="fa-solid fa-bars text-white text-2xl"></i>
+          </button>
           <img
             src="https://m.media-amazon.com/images/I/61+gxqqO8LL.jpg"
             alt=""
@@ -54,7 +57,7 @@ function AdminDash() {
         </div>
 
         <div className="flex gap-6 justify-center items-center">
-          <div className="flex justify-center items-center gap-2 relative">
+          {/* <div className="flex justify-center items-center gap-2 relative">
             <i className="fa-solid fa-magnifying-glass mr-2 absolute left-1 text-amber-500"></i>
 
             <input
@@ -62,7 +65,7 @@ function AdminDash() {
               placeholder="Search..."
               className="outline-none w-full bg-transparent border border-amber-500 hover:border-amber-500 rounded-lg p-2 pl-10 placeholder:text-amber-500"
             />
-          </div>
+          </div> */}
 
           <img
             src="https://img.icons8.com/fluent/1200/user-male-circle.jpg"
@@ -89,7 +92,10 @@ function AdminDash() {
       {/* Main Section */}
       <div className="flex flex-1">
         {/* Sidebar */}
-        <div className="w-72 bg-[#323235] text-[#cf9c70] p-4 flex flex-col gap-10 shadow-2xl  bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]">
+        {/* <div className="w-72 bg-[#323235] text-[#cf9c70] p-4 flex flex-col gap-10 shadow-2xl  bg-[radial-gradient(circle_at_top,rgba(25,17,50,0.14),transparent_45%),linear-gradient(135deg,#070707,#111111,#1a1a1a,#070707)]"> */}
+        <div
+          className={`fixed top-0 left-0 h-full z-50 w-72 bg-[#111111] text-[#cf9c70] p-4 flex flex-col gap-10 transition-transform duration-300 ${sidebar ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 `}
+        >
           <NavLink
             to="/admin"
             end
@@ -161,6 +167,13 @@ function AdminDash() {
             )}
           </div>
         </div>
+
+        {sidebar && (
+          <div
+            className="fixed inset-0 bg-black opacity-50 z-40 md:hidden"
+            onClick={() => setSidebar(false)}
+          />
+        )}
 
         {/* Content */}
         <div className="flex-1 overflow-hidden p-6">
