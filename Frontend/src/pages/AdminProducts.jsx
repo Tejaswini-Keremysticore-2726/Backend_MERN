@@ -30,9 +30,9 @@ const AdminProducts = () => {
     setLoading(false);
   };
 
-  // useEffect(() => {
-  //   fetchProducts();
-  // }, []);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const handleUpdate = async () => {
     try {
